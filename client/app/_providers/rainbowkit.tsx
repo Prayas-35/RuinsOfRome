@@ -11,6 +11,7 @@ import {
 import { coreWallet } from "@rainbow-me/rainbowkit/wallets";
 import { useTheme } from "next-themes";
 import { getConfig } from "./wagmi";
+import { hederaTestnet } from "wagmi/chains";
 
 const connectors = connectorsForWallets(
     [
@@ -93,7 +94,7 @@ export default function Providers(props: {
         <WagmiProvider config={config} initialState={props.initialState}>
             <QueryClientProvider client={queryClient}>
                 <RainbowKitProvider
-                    initialChain={43113}
+                    initialChain={hederaTestnet.id}
                     theme={customTheme}
                     coolMode
                     modalSize="wide"
